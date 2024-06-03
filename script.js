@@ -82,19 +82,72 @@
 // }
 
 
-const getPromise = () =>{
-    return new Promise((resolve , reject) =>{
-        console.log("I am a promise");
-        resolve("success");
-        reject("network error");
+// const getPromise = () =>{
+//     return new Promise((resolve , reject) =>{
+//         console.log("I am a promise");
+//         resolve("success");
+//         reject("network error");
+//     });
+// };
+
+// let promise = getPromise();
+// promise.then((res) =>{
+//     console.log("promise fulfilled" , res);
+// });
+
+// promise.catch((err) =>{
+//     console.log("rejected" , err);
+// });
+
+// Promise chain
+
+// function getData(dataId){
+//     return new Promise ((resolve,reject) =>{
+//         setTimeout(() => {
+//             console.log("data" , dataId);
+//             resolve("success");
+//         }, 2000);
+//     });
+// }
+
+// let p1 = getData(1);
+// p1.then((res) =>{
+//     console.log(res);
+// });
+
+// getData(1)
+// .then((res) =>{
+//     return getData(2);
+// })
+// .then((res) =>{
+//     return getData(3);
+// })
+// .then((res) =>{
+//     console.log(res);
+// })
+
+//Async-Await
+
+ function getData(dataId){
+    return new Promise ((resolve,reject) =>{
+        setTimeout(() => {
+            console.log("data" ,dataId);
+            resolve("success");
+        }, 2000);
     });
-};
+ }
 
-let promise = getPromise();
-promise.then((res) =>{
-    console.log("promise fulfilled" , res);
-});
-
-promise.catch((err) =>{
-    console.log("rejected" , err);
-});
+ async function getAlldata(){
+    console.log("Getting data1.....")
+    await getData(1);
+    console.log("Getting data2.....")
+    await getData(2);
+    console.log("Getting data3.....")
+    await getData(3);
+    console.log("Getting data4.....")
+    await getData(4);
+    console.log("Getting data5.....")
+    await getData(5);
+    console.log("Getting data6.....")
+    await getData(6);
+ }
